@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   around_action :set_locale_from_url
 
   def index
-    render template: 'application'
+    render template: "application"
   end
 end

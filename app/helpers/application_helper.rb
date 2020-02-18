@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   def ui_translations(section)
-    translations = { current: I18n.t('.')[:vue][section] }
+    translations = { current: I18n.t(".")[:vue][section] }
     translations.to_json.html_safe
   end
 
@@ -11,7 +11,6 @@ module ApplicationHelper
     current = collection.current_page
     total = collection.total_pages
     per_page = collection.limit_value
-
     {
       current: current,
       previous: (current > 1 ? (current - 1) : nil),

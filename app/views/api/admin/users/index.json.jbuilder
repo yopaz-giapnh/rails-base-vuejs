@@ -6,7 +6,7 @@ json.users @users.each do |user|
   json.email user.email
 end
 
-json.partial! partial: '/api/admin/shared/pagination', locals: {
+json.partial! partial: "/api/admin/shared/pagination", locals: {
   kind: @users,
-  callback: 'UserStore/index'
+  callback: "UserStore/index"
 }

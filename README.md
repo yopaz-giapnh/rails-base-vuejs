@@ -30,6 +30,12 @@ bundle exec rails db:seed
 foreman start
 ```
 
+## Coding convention
+Please always running this command to check your coding style before commit your code. Ensure no warning is shown before committing.
+```
+rubocop
+```
+
 ## Running tests
 
 ### Rails side

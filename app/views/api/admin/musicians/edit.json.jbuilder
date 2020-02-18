@@ -6,6 +6,6 @@ json.musician do
   json.band @musician.band
   json.bands Musician.bands.each do |name, _|
     json.key name
-    json.name t(name, scope: 'bands')
+    json.name t(name, scope: "bands")
   end
 end

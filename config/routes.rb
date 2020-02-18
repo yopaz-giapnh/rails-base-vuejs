@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount ActionCable.server => '/cable'
+  mount ActionCable.server => "/cable"
 
   localized do
     devise_for :users, only: [:sessions]
 
-    namespace :api, defaults: { format: 'json' } do
+    namespace :api, defaults: { format: "json" } do
       resources :musicians, only: %I[index show]
 
       namespace :admin do
         as :user do
-          delete 'sign_out', to: '/devise/sessions#destroy'
+          delete "sign_out", to: "/devise/sessions#destroy"
         end
         resources :dashboard, only: :index
         resources :users, except: :show
@@ -19,10 +19,10 @@ Rails.application.routes.draw do
       end
     end
 
-    get '/admin', to: 'admin#index'
-    match '/admin/*path', to: 'admin#index', format: false, via: :get
+    get "/admin", to: "admin#index"
+    match "/admin/*path", to: "admin#index", format: false, via: :get
 
-    root to: 'application#index'
-    match '*path', to: 'application#index', format: false, via: :get
+    root to: "application#index"
+    match "*path", to: "application#index", format: false, via: :get
   end
 end
