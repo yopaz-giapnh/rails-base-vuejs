@@ -22,15 +22,6 @@ describe "Musicians", :model do
   describe "#show" do
     it "returns a musician" do
       get api_musician_path(musicians(:one).id)
-      out = {
-        "musician" => {
-          "id" => 298_486_374,
-          "created_at" => "December 18 2017 20:43",
-          "name" => "bar",
-          "band" => "The Rolling Stones"
-        }
-      }
-
       assert_equal 200, last_response.status
       assert_equal "foo", json_response["musician"]["name"]
     end
