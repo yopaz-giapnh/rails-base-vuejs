@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Api
-  class MusiciansController < :ApiController
+  class MusiciansController < ApiController
     def index
       @musicians = Musician.all
     end

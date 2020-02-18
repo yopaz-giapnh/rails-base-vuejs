@@ -2,7 +2,7 @@
 
 module Api
   module Admin
-    class DashboardController < :AdminController
+    class DashboardController < AdminController
       def index
         metrics = {
           metrics: {

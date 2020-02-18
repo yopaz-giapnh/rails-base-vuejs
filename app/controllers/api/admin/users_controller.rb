@@ -2,7 +2,7 @@
 
 module Api
   module Admin
-    class UsersController < :AdminController
+    class UsersController < AdminController
       before_action :load_user, except: %i[index new create]
 
       def index

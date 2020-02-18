@@ -2,7 +2,7 @@
 
 module Api
   module Admin
-    class MusiciansController < :AdminController
+    class MusiciansController < AdminController
       before_action :load_musician, except: %i[index new create]
 
       def index
