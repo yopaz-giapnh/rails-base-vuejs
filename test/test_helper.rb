@@ -1,4 +1,6 @@
-require File.expand_path('../../config/environment', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('../config/environment', __dir__)
 require 'rails/test_help'
 
 ENV['RAILS_ENV'] ||= 'test'
@@ -8,7 +10,7 @@ require 'rack/test'
 require 'capybara/rails'
 require 'minitest'
 require 'minitest/rails'
-#require 'minitest/rails/capybara'
+# require 'minitest/rails/capybara'
 require 'minitest/spec'
 require 'minitest/matchers'
 require 'minitest-metadata'
@@ -19,10 +21,10 @@ include ActionDispatch::TestProcess
 include Warden::Test::Helpers
 
 Rails.logger.level = 5
-Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('test/support/**/*.rb')].sort.each { |f| require f }
 
 # See https://github.com/rails/rails/issues/31324
-if ActionPack::VERSION::STRING >= "5.2.0"
+if ActionPack::VERSION::STRING >= '5.2.0'
   Minitest::Rails::TestUnit = Rails::TestUnit
 end
 
@@ -54,13 +56,12 @@ class ActiveSupport::TestCase
   register_spec_type(self) do |desc|
     desc < ActiveRecord::Base if desc.is_a?(Class)
   end
-
 end
 
 class ActionDispatch::IntegrationTest
   include ResponseAssertions
 
-  default_url_options[:host] = "example.org"
+  default_url_options[:host] = 'example.org'
 
   Capybara.register_driver :selenium do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome)

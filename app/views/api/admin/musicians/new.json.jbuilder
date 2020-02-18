@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.musician do
   json.name @musician.name
   json.bands Musician.bands.each do |name, _|

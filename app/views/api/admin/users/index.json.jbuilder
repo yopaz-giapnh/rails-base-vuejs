@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.users @users.each do |user|
   json.id user.id
   json.created_at l(user.created_at, format: :default)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
     get '/admin', to: 'admin#index'
     match '/admin/*path', to: 'admin#index', format: false, via: :get
 
-    root :to => 'application#index'
+    root to: 'application#index'
     match '*path', to: 'application#index', format: false, via: :get
   end
 end

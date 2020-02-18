@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 obj = paginate(kind)
 json.pagination do
   json.current obj[:current]

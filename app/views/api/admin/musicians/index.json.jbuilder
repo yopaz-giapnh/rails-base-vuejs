@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.musicians @musicians.each do |musician|
   json.id musician.id
   json.created_at l(musician.created_at, format: :default)

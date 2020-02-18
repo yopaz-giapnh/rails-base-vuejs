@@ -1,5 +1,6 @@
-class Api::Admin::DashboardController < Api::Admin::AdminController
+# frozen_string_literal: true
 
+class Api::Admin::DashboardController < Api::Admin::AdminController
   def index
     metrics = {
       metrics: {
@@ -10,5 +11,4 @@ class Api::Admin::DashboardController < Api::Admin::AdminController
 
     render json: metrics.to_json
   end
-
 end

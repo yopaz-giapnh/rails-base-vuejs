@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   around_action :set_locale_from_url
@@ -5,5 +7,4 @@ class ApplicationController < ActionController::Base
   def index
     render template: 'application'
   end
-
 end

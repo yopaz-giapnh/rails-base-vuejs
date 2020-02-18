@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Api::Admin::UsersController < Api::Admin::AdminController
-  before_action :load_user, except: [:index, :new, :create]
+  before_action :load_user, except: %i[index new create]
 
   def index
     @users = User.ransack(search_params)
@@ -12,14 +14,13 @@ class Api::Admin::UsersController < Api::Admin::AdminController
     @user = User.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = User.create(user_params)
 
     if @user.errors.any?
-      render json: {success: false, errors: @user.errors.messages}.to_json, status: 422
+      render json: { success: false, errors: @user.errors.messages }.to_json, status: 422
     else
       render template: '/api/admin/users/edit'
     end
@@ -29,7 +30,7 @@ class Api::Admin::UsersController < Api::Admin::AdminController
     if @user.update(user_params)
       render template: '/api/admin/users/edit'
     else
-      render json: {success: false, errors: @user.errors.messages}.to_json, status: 422
+      render json: { success: false, errors: @user.errors.messages }.to_json, status: 422
     end
   end
 
@@ -37,22 +38,21 @@ class Api::Admin::UsersController < Api::Admin::AdminController
     if @user.destroy
       head 200
     else
-      render json: {success: false, errors: @user.errors.messages}.to_json, status: 422
+      render json: { success: false, errors: @user.errors.messages }.to_json, status: 422
     end
   end
 
   private
 
-    def user_params
-      params.require(:user).permit(
-        :email,
-        :password,
-        :password_confirmation
-      )
-    end
+  def user_params
+    params.require(:user).permit(
+      :email,
+      :password,
+      :password_confirmation
+    )
+  end
 
-    def load_user
-      @user = User.find(params[:id])
-    end
-
+  def load_user
+    @user = User.find(params[:id])
+  end
 end

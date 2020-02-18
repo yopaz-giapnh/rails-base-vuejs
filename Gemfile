@@ -1,24 +1,27 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'bootsnap', '>= 1.4.2', require: false
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 
-gem 'sqlite3'
-gem 'puma', '~> 4.1'
-gem 'sass-rails', '>= 6'
-gem 'uglifier', '>= 1.3.0'
-gem 'webpacker', '~> 4.0'
-gem 'route_translator'
-gem 'jbuilder', '~> 2.5'
-gem 'kaminari'
-gem 'ransack'
+gem 'bootsnap', '>= 1.4.2', require: false
+gem 'rubocop', require: false
+
 gem 'devise'
 gem 'foreman'
+gem 'jbuilder', '~> 2.5'
+gem 'kaminari'
+gem 'puma', '~> 4.1'
+gem 'ransack'
+gem 'route_translator'
+gem 'sass-rails', '>= 6'
+gem 'sqlite3'
+gem 'uglifier', '>= 1.3.0'
+gem 'webpacker', '~> 4.0'
 
 # COMMENTED OUT: Turbolinks doesn't play well with SPA
 # gem 'turbolinks', '~> 5'

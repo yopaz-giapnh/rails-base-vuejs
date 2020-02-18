@@ -1,7 +1,8 @@
-class ChatChannel < ApplicationCable::Channel
+# frozen_string_literal: true
 
+class ChatChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "ChatChannel"
+    stream_from 'ChatChannel'
   end
 
   def unsubscribed
@@ -9,6 +10,6 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def talk(data)
-    ActionCable.server.broadcast "ChatChannel", data['message']
+    ActionCable.server.broadcast 'ChatChannel', data['message']
   end
 end
