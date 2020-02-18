@@ -45,6 +45,8 @@ group :development, :test do
   gem "selenium-webdriver"
   gem "warden"
   gem "webdrivers"
+  gem "capistrano", "~> 3.10", require: false
+  gem "capistrano-rails", "~> 1.4", require: false
 end
 
 group :development do
